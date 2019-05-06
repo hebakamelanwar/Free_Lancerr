@@ -1,0 +1,14 @@
+Host
+ec2-23-23-228-132.compute-1.amazonaws.com
+Database
+deqngk324p153p
+User
+hedmgtryrynnvo
+Port
+5432
+Password
+8d3725c0c82caf633dea68b3520ed712ae8bb985e69daf228c9a2a72959a91c5
+URI
+postgres://hedmgtryrynnvo:8d3725c0c82caf633dea68b3520ed712ae8bb985e69daf228c9a2a72959a91c5@ec2-23-23-228-132.compute-1.amazonaws.com:5432/deqngk324p153p
+Heroku CLI
+heroku pg:psql postgresql-colorful-67218 --app my-data-base
