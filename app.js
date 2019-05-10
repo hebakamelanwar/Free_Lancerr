@@ -24,16 +24,19 @@ var transporter = nodemailer.createTransport({
         pass: 'xzoahseedlerintr'
     }
 });
+const database_link = 'postgres://guubdceshesoyx:ea940cb2674263483e68fb29c358aef452045dedd2141c4206e78153ab683b68@ec2-23-21-186-85.compute-1.amazonaws.com:5432/d40c20g7k77c0f';
+const client = new pg.Client(database_link);
 
 app.use(bodyParser.urlencoded({ extended: false }));
-const client = new pg.Client({
-    user: 'hedmgtryrynnvo',
-    password: '8d3725c0c82caf633dea68b3520ed712ae8bb985e69daf228c9a2a72959a91c5',
-    database: 'deqngk324p153p',
-    port: 5432,
-    host: 'ec2-23-23-228-132.compute-1.amazonaws.com',
-    ssl: true
-});
+// const client = new pg.Client({
+//     user: 'hedmgtryrynnvo',
+//     password: '8d3725c0c82caf633dea68b3520ed712ae8bb985e69daf228c9a2a72959a91c5',
+//     database: 'deqngk324p153p',
+//     port: 5432,
+//     host: 'ec2-23-23-228-132.compute-1.amazonaws.com',
+//     ssl: true
+// });
+
 
 client.connect();
 
