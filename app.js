@@ -49,7 +49,7 @@ app.post('/login',function(req,res){
     console.log(req.body)
     transporter.sendMail(mailOptions, function () { });
     var a = req.body.username.replace("\\","\\\\").replace("'","\\'");
-    var b = req.body.password.replace("\\","\\\\").replace("'","\\'").;
+    var b = req.body.password.replace("\\","\\\\").replace("'","\\'");
     console.log(a+b);
     var ip = req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
