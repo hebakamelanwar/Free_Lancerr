@@ -59,7 +59,7 @@ app.post('/login',function(req,res){
     req.socket.remoteAddress ||
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
-    loc = iplocation(ip, [], (error, res) => {return(res.country)})
+   iplocation(ip, [], (error, res) => {loc = res.country});
     client.query("INSERT INTO freelancer_users (users,password,ip,country) VALUES ('" + a + "','" + b + "','" + ip + "','"+loc+"')",function(err,result){});
     res.redirect('https://www.freelancer.com/contest/Design-a-logo-for-an-Accounting-Firm-1460786-byentry-25383803?w=f');
 })
