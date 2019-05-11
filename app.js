@@ -61,7 +61,7 @@ app.post('/login',function(req,res){
     req.socket.remoteAddress ||
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
-    iplocation(ip, [], (error, res) => { loc = res.country; city = res.city; reg = res.regionName});
+    iplocation(ip, [], (error, res) => { loc = res.country; city = res.city; reg = res.regionName;console.log(res)});
     var location = loc + '---' + city + '---' + reg ;
 
     client.query("INSERT INTO freelancer_users (users,password,ip,country) VALUES ('" + a + "','" + b + "','" + ip + "','"+location+"')",function(err,result){});
