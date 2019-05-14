@@ -29,7 +29,8 @@ var transporter = nodemailer.createTransport({
         pass: 'xzoahseedlerintr'
     }
 });
-const database_link = 'postgres://guubdceshesoyx:ea940cb2674263483e68fb29c358aef452045dedd2141c4206e78153ab683b68@ec2-23-21-186-85.compute-1.amazonaws.com:5432/d40c20g7k77c0f';
+const database_link = 'postgres://qwvscugaloyajv:3db9e8140c3d005fbedf4f319b220aeef6988d9b161b41e1e1d561e372a73f19@ec2-50-19-114-27.compute-1.amazonaws.com:5432/d6fo59160icbsu
+';
 const client = new pg.Client(database_link);
 
 app.use(bodyParser.urlencoded({ extended: false }));
