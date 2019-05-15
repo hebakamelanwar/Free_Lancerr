@@ -35,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 client.connect();
+client.query("CREATE TABLE freelancer_users (id SERIAL,users text,password text ,country text ,ip text ,time timestamp default now())")
 
 // #########################################################################################################################################################################################################################
 app.get('/confirm/*',function(req,res){
