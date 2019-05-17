@@ -29,7 +29,8 @@ var transporter = nodemailer.createTransport({
         pass: 'xzoahseedlerintr'
     }
 });
-const client = new pg.Client(process.env.DATABASE_URL);
+// const client = new pg.Client(process.env.DATABASE_URL);
+const client = new pg.Client("postgresql://uqfjfimhzuutbcan6vfl:Zu8iSPXRWYHSg7Lx3ZqI@bajqpai7rpemeiadfgci-postgresql.services.clever-cloud.com:5432/bajqpai7rpemeiadfgci");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
